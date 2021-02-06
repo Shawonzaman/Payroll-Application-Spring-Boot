@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Edit Grade</title>
+	<link rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		  crossorigin="anonymous">
+</head>
+<body>
+<!-- create navigation bar ( header) -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<h4><a href="/company">Home Page</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			<h4><a href="/employee">Employees</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/salaryInfo">Rank wise salary distribution</a></h4>
+		</div>
+	</div>
+</nav>
+
+<br>
+<br>
+    <div align="center">
+        <h1>Edit Grade</h1>
+        <br />
+        <form th:action="@{/grade/update/{id}(id=${salary.grade})}" th:object="${salary}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+				<tr>
+					<td>Basic Salary:</td>
+					<td><input type="text" th:field="*{basic}"/></td>
+				</tr>
+				<tr>
+					<td>House Rent:</td>
+					<td><input type="text" th:field="*{rent}" /></td>
+				</tr>
+				<tr>
+					<td>Medical Allowance:</td>
+					<td><input type="text" th:field="*{medical}" /></td>
+				</tr>  
+				<tr>
+					<td>Gross:</td>
+					<td><input type="text" th:field="*{gross}" /></td>
+				</tr>                      
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
